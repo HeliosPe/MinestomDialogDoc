@@ -1,6 +1,6 @@
 # Диалоги в Minestom
 ## Содержимое
-- Вступление
+- [Вступление](#вступление)
 
 ***
 ## Вступление
@@ -25,27 +25,27 @@
 
 ```java
 //Создаётся сам диалог
-var noticeDialog = new Dialog.Confirmation(
+var dialog = new Dialog.Confirmation(
         new DialogMetadata(
-                Component.text("Важный вопрос"),
-                null,
-                false,
-                false,
-                DialogAfterAction.CLOSE,
-                List.of(
-                        new DialogBody.Item(
-                                ItemStack.of(Material.PAPER),
-                                null, false, false, 16, 16),
-                        new DialogBody.PlainMessage(Component.text("Сосал БИБУ?"), 100)
-                ), List.of()
+                Component.text("Важный вопрос"), //title
+                null, //externalTitle
+                false, //canCloseWithEscape
+                false, //pause
+                DialogAfterAction.CLOSE, //afterAction
+                List.of( //body
+                        new DialogBody.Item( 
+                                ItemStack.of(Material.PAPER), //itemStack
+                                null, false, false, 16, 16), //description, showDecoration, showTooltip, width, height
+                        new DialogBody.PlainMessage(Component.text("Сосал БИБУ?"), 100) //contents, width
+                ), List.of() //inputs
         ),
-        new DialogActionButton(Component.text("Да."), null, 100, null),
-        new DialogActionButton(Component.text("Да."), null, 100, null)
+        new DialogActionButton(Component.text("Да."), null, 100, null), //label, tooltip, width, action
+        new DialogActionButton(Component.text("Да."), null, 100, null)  //. . . 
 );
 ```
 Показать игроку созданный диалог:
 ```java
-player.showDialog(noticeDialog);
+player.showDialog(dialog);
 ```
 Как это выглядит:
 ![Пример как работает код выше в игре](fastExample.png)
