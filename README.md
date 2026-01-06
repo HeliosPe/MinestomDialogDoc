@@ -1,10 +1,16 @@
 # Диалоги в Minestom
+
+---
 ## Содержимое
+
+
 - [Вступление](README.md#вступление)
 - [Структура диалогов](Structure.md#структура-диалогов)
 
 ***
 ## Вступление
+
+---
 
 [Диалог](https://minecraft.wiki/w/Dialog) — это простое модальное окно, 
 которое может отображать информацию и принимать входные данные игрока, 
@@ -49,8 +55,10 @@ var dialog = new Dialog.Confirmation(
 player.showDialog(dialog);
 ```
 Как это выглядит:
-![Пример как работает код выше в игре](fastExample.png)
+![Пример как работает код выше в игре](images/fastExample.png)
 В целом реализация Minestom верно следует структуре ванильных диалогов, потому
 при независимом ознакомлении рекомендуется сопоставлять официальную [wiki](https://minecraft.wiki/w/Dialog) и
 документацию по [package:net.minestom.server.dialog](https://javadoc.minestom.net/net.minestom.server/net/minestom/server/dialog/package-summary.html)
 ***
+
+`Дальше`: [Структура диалогов](Structure.md#структура-диалогов)
