@@ -5,7 +5,7 @@
 
 
 - [Вступление](README.md#вступление)
-- [Структура диалогов](Structure.md#структура-диалогов)
+- [Структура диалогов](docs/STRUCTURE.md#структура-диалогов)
 
 ***
 ## Вступление
@@ -61,4 +61,4 @@ player.showDialog(dialog);
 документацию по [package:net.minestom.server.dialog](https://javadoc.minestom.net/net.minestom.server/net/minestom/server/dialog/package-summary.html)
 ***
 
-`Дальше`: [Структура диалогов](Structure.md#структура-диалогов)
+`Дальше`: [Структура диалогов](docs/STRUCTURE.md#структура-диалогов)
