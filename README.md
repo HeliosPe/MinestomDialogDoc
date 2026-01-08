@@ -16,7 +16,7 @@
 которое может отображать информацию и принимать входные данные игрока, 
 введённое в Minecraft *Java Edition* с версии
 [1.21.6](https://minecraft.wiki/w/Java_Edition_1.21.6). 
-Простым языком суть диалога это показать текст и что-то сделать после нажатия 
+Простым языком суть диалога — это показать текст и что-то сделать после нажатия 
 кнопочки.
 В **Minestom** поддержка диалогов была введена с версии 
 [Minestom 1.21.7 / 1.21.6](https://github.com/Minestom/Minestom/releases/tag/2025.07.10-1.21.7).
@@ -27,7 +27,7 @@
 **json**, который либо указывается как параметр команды, либо записывается в datapack по пути
 `datapackName[.zip]\data\namespace\dialog\<name>.json`.
 
-В Minestom диалоги строются при помощи records. Если никогда про них не слышал быстро [тык](https://docs.oracle.com/en/java/javase/17/language/records.html).
+В Minestom диалоги строются при помощи records. Если никогда про них не слышал, быстро [тык](https://docs.oracle.com/en/java/javase/17/language/records.html).
 Быстрый пример как это работает:
 
 ```java
@@ -56,6 +56,7 @@ player.showDialog(dialog);
 ```
 Как это выглядит:
 ![Пример как работает код выше в игре](images/fastExample.png)
+
 В целом реализация Minestom верно следует структуре ванильных диалогов, потому
 при независимом ознакомлении рекомендуется сопоставлять официальную [wiki](https://minecraft.wiki/w/Dialog) и
 документацию по [package:net.minestom.server.dialog](https://javadoc.minestom.net/net.minestom.server/net/minestom/server/dialog/package-summary.html)
