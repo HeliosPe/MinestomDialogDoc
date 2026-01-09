@@ -317,7 +317,7 @@ DialogActionButton(Component label, @Nullable Component tooltip, int width, @Nul
 - `tooltip` текстовая подсказка отображаемая при наведении курсором на виджет
 - `width` ширина виджета
 - `action` действие которое запускается при нажатии кнопки. Если `null`, диалоговое окно просто закрывается. Подробнее 
-про `DialogAction` — [тут](//TODO)
+про `DialogAction` — [тут](FUNCTIONALITY.md)
 
 `Назад`: [Структура диалогов](STRUCTURE.md)
 `Дальше`: [Функциональность диалогов](FUNCTIONALITY.md)
