@@ -6,6 +6,8 @@
 
 - [Вступление](../README.md#вступление)
 - [Структура диалогов](STRUCTURE.md#структура-диалогов)
+- [Компоненты диалогов](COMPONENTS.md)
+- [Функциональность диалогов](FUNCTIONALITY.md)
 </details>
 
 - [Типы диалогов](STRUCTURE.md#типы-диалогов)
@@ -52,9 +54,9 @@ DialogMetadata(
 - `title` создаётся с помощью метода `Component.text(String text)`
 - `canCloseWithEscape` и `pause` — обычные значения типа boolean
 - `afterAction` принимает одно из значений enum `DialogAfterAction`: `CLOSE`, `NONE`, `WAIT_FOR_RESPONSE`
-- `body` список объектов типа `DialogBody`. Подробнее о нём написано [тут](COMPONENTS.md#dialogbody). При необходимости 
+- `body` контейнер виджетов, список объектов типа `DialogBody`. Подробнее о нём написано [тут](COMPONENTS.md#dialogbody). При необходимости 
 можно передать пустой список с помощью `List.of()`
-- `inputs` список объектов типа `DialogInput`. Подробнее о нём также написано [тут](COMPONENTS.md#dialoginput). При необходимости 
+- `inputs` контейнер виджетов список объектов типа `DialogInput`. Подробнее о нём также написано [тут](COMPONENTS.md#dialoginput). При необходимости 
 можно передать пустой список с помощью `List.of()`
 
 Вот рабочий пример создания объекта типа DialogMetadata:
@@ -311,3 +313,6 @@ DialogList(DialogMetadata metadata, HolderSet<Dialog> dialogs, @Nullable DialogA
 ```
 Как это выглядит:
 ![dialogListDialogExample](../images/dialogListDialogExample.png)
+
+`Назад`: [Вступление](../README.md)
+`Дальше`: [Компоненты диалогов](COMPONENTS.md)
