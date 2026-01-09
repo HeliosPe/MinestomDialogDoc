@@ -1,9 +1,32 @@
+# Виджеты диалогового окна
+Будут рассмотрены основные виджеты состоаляющее любое диалоговое окно, и как с ними работать.
+
+---
+<details>
+<summary>Оглавление</summary>
+
+- [Вступление](../README.md#вступление)
+- [Структура диалогов](STRUCTURE.md#структура-диалогов)
+- [Компоненты диалогов](COMPONENTS.md)
+- [Функциональность диалогов](FUNCTIONALITY.md)
+</details>
+
+- [DialogBody](COMPONENTS.md#dialogbody)
+  - [PlainMessage](COMPONENTS.md#dialogbodyplainmessage)
+  - [Item](COMPONENTS.md#item)
+- [DialogInput](COMPONENTS.md#dialoginput)
+  - [Boolean](COMPONENTS.md#boolean)
+  - [NumberRange](COMPONENTS.md#numberrange)
+  - [SingleOption](COMPONENTS.md#singleoption)
+  - [Text](COMPONENTS.md#text)
+- [DialogActionButton](COMPONENTS.md#dialogactionbutton)
+
 ## DialogBody
 
-`DialogBody` — интерфейс описывающий виджеты содержащиеся в контейнере `body` диалогового окна. На момент написания 
+`DialogBody` — интерфейс, описывающий виджеты содержащиеся в контейнере `body` диалогового окна. На момент написания 
 статьи имеет две конкретные релизации: `DialogBody.PlainMessage`, `DialogBody.Item`.
 
-### DialogBody.PlainMessage
+### PlainMessage
 
 `PlainMessage` отображает текст в диалоговом окне. Имеет следующий конструктор:
 ```java
@@ -12,7 +35,7 @@ PlainMessage(Component contents, int width)
 - `contents` текст. Создается методом `Component.text(String s)`
 - `width` ширина рамки текста 
 
-### DialogBody.Item
+### Item
 `Item` отображает внутриигровой предмет в диалоговом окне. Показывает не только текстуру предмета, но и, в зависимости 
 от параметров, его количество, текстовую подсказку и эффект зачарования.
 
@@ -25,11 +48,11 @@ Item(ItemStack itemStack, @Nullable DialogBody.PlainMessage description, boolean
 статическим методом `ItemStack.of(Material material, int amount)`. Или его перегрузками, которые описаны [тут](https://javadoc.minestom.net/net.minestom.server/net/minestom/server/item/ItemStack.html#of(net.minestom.server.item.Material)).
 Можно передавать даже предметы из инвенторя игрока!
 - `description` текстовый компонент, который отобразится справа от предмета
-- `showDecoration` *в теории при `false` отключает отображение колличества предмета. На деле у автора статъи оно ничего 
+- `showDecoration` *в теории при `false` отключает отображение количество предмета. На деле у автора статьи оно ничего 
 не меняет*
 - `showTooltip` показывается ли имя предмета при наведении на него курсором
-- `width` ширина рамки предмета. Рекомендуется значение около `16` покрывающее размер текстуры
-- `height` высота рамки предмета. Рекомендуется значение около `16` покрывающее размер текстуры
+- `width` ширина рамки предмета. Рекомендуется значение около `16`, покрывающее размер текстуры
+- `height` высота рамки предмета. Рекомендуется значение около `16`, покрывающее размер текстуры
 
 При больших значениях `width` и `height` текстура предмета остается привязана к верхнему левому углу *рамки*. Объекты
 слева и снизу смещаются.
@@ -75,8 +98,8 @@ false, true, 45, 30)
 ![item large frame in body example](../images/itemBodyExample1.png)
 
 ## DialogInput
-`DialogInput` — интерфейс описывающий виджеты ввода содержащиеся в контейнере `inputs` диалогового окне. На 
-момент написания статьи имеет следущие конкретные реализации:
+`DialogInput` — интерфейс, описывающий виджеты ввода содержащиеся в контейнере `inputs` диалогового окне. На 
+момент написания статьи имеет следующие конкретные реализации:
 - `DialogInput.Boolean`
 - `DialogInput.NumberRange `
 - `DialogInput.SingleOption`
@@ -114,8 +137,8 @@ var notice = new Dialog.ServerLinks(
 - `key` ключ по которому можно будет получить значение введённое в виджет
 - `label` текстовый компонент, который отобразится справа от предмета. Создается методом `Component.text(String s)`
 - `initial` первоначальное состояние виджета. Если `true`, то поставлена галочка
-- `onTrue` предположительно необходим для `datapack`. Автор признаёт что `не понял их смысл`
-- `onFalse` предположительно необходим для `datapack`. Автор признаёт что `не понял их смысл`
+- `onTrue` предположительно необходим для `datapack`. Автор признаёт, что `не понял их смысл`
+- `onFalse` предположительно необходим для `datapack`. Автор признаёт, что `не понял их смысл`
 
 Готовый пример:
 ```java
@@ -139,7 +162,7 @@ globalEventHandler.addListener(PlayerCustomClickEvent.class, (event) -> {
     }
 });
 ```
-### NumberRange 
+### NumberRange
 
 Виджет-ползунок. Имеет следующий конструктор:
 ```java
@@ -148,13 +171,13 @@ NumberRange(String key, int width, Component label, String labelFormat, float st
 
 - `key` ключ по которому можно будет получить значение введённое в виджет
 - `width` ширина виджета
-- `label` текстовый компонент, который отобразится внутори виджета. Создается методом `Component.text(String s)`
+- `label` текстовый компонент, который отобразится внутри виджета. Создается методом `Component.text(String s)`
 - `labelFormat` *Ключ перевода, который будет использоваться для создания `label ` (первый аргумент - содержимое поля 
-`label`, второй аргумент - текущее значение). По умолчанию используется значение options.generic_value.* Автор признаёт что `не понял смысл`
+`label`, второй аргумент - текущее значение). По умолчанию используется значение options.generic_value.* Автор признаёт, что `не понял смысл`
 - `start` числовое значение которое соответствует крайне `левому` положению ползунка
 - `end` числовое значение которое соответствует крайне `правому` положению ползунка
 - `initial` числовое значение которое стоит по умолчанию
-- `step` *на сколько* смещение ползнунка будет менять числовое значение.
+- `step` *на сколько* смещение ползунка будет менять числовое значение.
 
 Готовый пример:
 ```java
@@ -187,8 +210,8 @@ SingleOption(String key, int width, List<DialogInput.SingleOption.Option> option
 - `key` ключ по которому можно будет получить значение введённое в виджет
 - `width` ширина виджета
 - `options` список состояний между которыми виджет переключается при нажатии. Содержит объекты типа `Option`
-- `label` текстовый компонент, который отобразится внутори виджета. Создается методом `Component.text(String s)`
-- `labelVisible` виден ли текст `label` на виджете или игнорируется. Если true, на виджете будет нечно подобное: *label: option*
+- `label` текстовый компонент, который отобразится внутри виджета. Создается методом `Component.text(String s)`
+- `labelVisible` виден ли текст `label` на виджете или игнорируется. Если true, на виджете будет нечто подобное: *label: option*
 
 Option имеет следующий конструктор:
 ```java
@@ -197,7 +220,7 @@ Option(String id, @Nullable Component display, boolean initial)
 - `id` текстовое значение которое отправится серверу если игрок выберет текущее состояние
 - `display` текст который отображается на виджете если выбрано текущее состояние. Если `null`, отображаться будет `id`
 - `initial` является ли это состояние первоначальным. Список состояний должен иметь одно и только одно состояние с `initial=true`,
-иначе игрок будет выкинут из игра при отправке диалога. 
+иначе игрок будет выкинут из игры при отправке диалога. 
 
 Готовый пример:
 ```java
@@ -236,21 +259,21 @@ globalEventHandler.addListener(PlayerCustomClickEvent.class, (event) -> {
 Виджет для ввода текст. Имеет следующий конструктор:
 
 ```java
-    Text(String key, int width, Component label, boolean labelVisible, String initial, int maxLength, @Nullable DialogInput.Text.Multiline multiline)
+Text(String key, int width, Component label, boolean labelVisible, String initial, int maxLength, @Nullable DialogInput.Text.Multiline multiline)
 ```
 - `key` ключ по которому можно будет получить значение введённое в виджет
 - `width` ширина виджета
 - `label` текстовый компонент, который отобразится справа от предмета. Создается методом `Component.text(String s)`
 - `labelVisible` виден ли текст `label` на виджете или игнорируется
 - `initial` первоначальный текст в виджете
-- `maxLength` максимальное колличество символов в строке. Переход на новую строку, если разрешен, тоже считается за символ
+- `maxLength` максимальное количество символов в строке. Переход на новую строку, если разрешен, тоже считается за символ
 - `multiline` описывает многострочный ввод текста. Если null, текст вводится в *одну строку*
 
 Multiline имеет следующий конструктор:
 ```java
 Multiline(@Nullable Integer maxLines, @Nullable Integer height)
 ```
-- `maxLines` максимальное колличество строк
+- `maxLines` максимальное количество строк
 - `height` высота виджета
 
 Готовый пример:
@@ -287,13 +310,13 @@ globalEventHandler.addListener(PlayerCustomClickEvent.class, (event) -> {
 следующий конструктор:
 
 ```java
-    DialogActionButton(Component label, @Nullable Component tooltip, int width, @Nullable DialogAction action)
+DialogActionButton(Component label, @Nullable Component tooltip, int width, @Nullable DialogAction action)
 ```
 - `label` текст отображаемый на виджете. Создается методом `Component.text(String s)`
 - `tooltip` текстовая подсказка отображаемая при наведении курсором на виджет
 - `width` ширина виджета
 - `action` действие которое запускается при нажатии кнопки. Если `null`, диалоговое окно просто закрывается. Подробнее 
-про `DialogAction` — [тут](ACTIONS.md#dialogaction)
+про `DialogAction` — [тут](//TODO)
 
 `Назад`: [Компоненты диалогов](COMPONENTS.md)
 `Дальше`: [Функциональность диалогов](FUNCTIONALITY.md)

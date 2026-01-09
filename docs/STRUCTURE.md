@@ -125,8 +125,8 @@ var noticeDialog = new Dialog.Notice(
 Confirmation(DialogMetadata metadata, DialogActionButton yesButton, DialogActionButton noButton)
 ```
 - `metadata` содержит общие поля для всех типов диалогов. Подробнее — [тут](STRUCTURE.md#dialogmetadata)
-- `yesButton` описывают первую кнопку в нижней части окна
-- `noButton` описывают вторую кнопку в нижней части окна. Подробнее про `DialogActionButton` — [тут](COMPONENTS.md#dialogactionbutton)
+- `yesButton` описывает первую кнопку в нижней части окна
+- `noButton` описывает вторую кнопку в нижней части окна. Подробнее про `DialogActionButton` — [тут](COMPONENTS.md#dialogactionbutton)
 
 Пример готового `Confirmation` диалога:
 ```java
@@ -155,16 +155,16 @@ var confirmationDialog = new Dialog.Confirmation(
 
 ## Multi Action
 
-`Много-действие` — это прокручиваемое (вертикально) диалоговое окно с n-ым колличеством кнопок `действия` в нижней части. 
+`Много-действие` — это прокручиваемое (вертикально) диалоговое окно с n кнопками `действия` в нижней части. 
 Где n >= 1. Реализовывается вложенным классом `Dialog.MultiAction`, чей конструктор имеет следующую сигнатуру:
 ```java
 MultiAction(DialogMetadata metadata, List<DialogActionButton> actions, @Nullable DialogActionButton exitAction, int columns)
 ```
 - `metadata` содержит общие поля для всех типов диалогов. Подробнее — [тут](STRUCTURE.md#dialogmetadata)
-- `actions` НЕ ПУСТОЙ список кнопок в нижней части окна. Если оставить пустым игрок будет выкинут при отправке диалога.
+- `actions` НЕ ПУСТОЙ список кнопок в нижней части окна. Если оставить его пустым, игрок будет выкинут при отправке диалога.
 Содержит объекты типа `DialogActionButton`
 - `exitAction` опциональная кнопка отображаемая в самом низу. Подробнее про `DialogActionButton` — [тут](COMPONENTS.md#dialogactionbutton)
-- `сolumns` число больше или равно 1. Описывает колличество колонн на которые будет разбит список кнопок из `actions`.
+- `сolumns` число больше или равно 1. Описывает количество колонн на которые будет разбит список кнопок из `actions`.
 Рекомендуется не выставлять слишком крупное значение, потому что прокрутка по горизонтали невозможна. Единственный 
 способ просмотреть все кнопки в таком случае — растянуть как-то окно игры. 
 
@@ -207,9 +207,9 @@ var multiAction = new Dialog.MultiAction(
 ## Server Links
 
 `Ссылки сервера` — это прокручиваемое (вертикально) диалоговое окно с одной опциональной кнопкой выхода в нижней части 
-окна и с n-ым колличеством кнопок `которые отсылают на ссылки сервера`. В теории отображает ссылки которые 
+окна и с n кнопками `которые отсылают на ссылки сервера`. В теории отображает ссылки которые 
 перечисляются где-то в настройках сервера. Неизвестно работает ли это тут. Читателю как разработчику этот тип диалога 
-показаться бесполезным. 
+может показаться бесполезным.
 
 Реализовывается вложенным классом `Dialog.ServerLinks` чей конструктор имеет следующую сигнатуру:
 ```java
@@ -217,8 +217,8 @@ ServerLinks(DialogMetadata metadata, @Nullable DialogActionButton exitAction, in
 ```
 - `metadata` содержит общие поля для всех типов диалогов. Подробнее — [тут](STRUCTURE.md#dialogmetadata)
 - `exitAction` опциональная кнопка отображаемая в самом низу. Подробнее — про `DialogActionButton` [тут](COMPONENTS.md#dialogactionbutton)
-- `columns` описывает колличество колонн на которые будет разбит список *ссылок сервера*.
-- `buttonWidth` описывает ширину кнопки которая будет переадрессовывать на *ссылку сервера*
+- `columns` описывает количество колонн на которые будет разбит список *ссылок сервера*.
+- `buttonWidth` описывает ширину кнопки которая будет перенаправлять на *ссылку сервера*
 
 Пример готового `ServerLinks` диалога:
 ```java
@@ -251,7 +251,7 @@ var serverLinks = new Dialog.ServerLinks(
 ## Dialog List
 
 `Список диалогов` — это прокручиваемое (вертикально) диалоговое окно с одной опциональной кнопкой выхода в нижней части
-окна и с n-ым колличеством кнопок `которые отсылают на другие диалоги`. Где n >= 0. Реализовывается вложенным классом 
+окна и с n кнопками `которые отсылают на другие диалоги`. Где n >= 0. Реализовывается вложенным классом 
 `Dialog.DialogList` чей конструктор имеет следующую сигнатуру:
 ```java
 DialogList(DialogMetadata metadata, HolderSet<Dialog> dialogs, @Nullable DialogActionButton exitAction, int columns, int buttonWidth)
@@ -259,7 +259,7 @@ DialogList(DialogMetadata metadata, HolderSet<Dialog> dialogs, @Nullable DialogA
 - `metadata` содержит общие поля для всех типов диалогов. Подробнее — [тут](STRUCTURE.md#dialogmetadata)
 - `dialogs` контейнер для диалогов. Можно создать при помощи конструктора `new HolderSet.Direct<>(List<? extends Dialog> list)`
 - `exitAction` опциональная кнопка отображаемая в самом низу. Подробнее про `DialogActionButton` — [тут](COMPONENTS.md#dialogactionbutton)
-- `сolumns` число больше или равно 1. Описывает колличество колонн на которые будет разбит список кнопок ссылающихся 
+- `сolumns` число больше или равно 1. Описывает количество колонн на которые будет разбит список кнопок ссылающихся 
 на диалоги из `dialogs`. Рекомендуется не выставлять слишком крупное значение, потому что прокрутка по горизонтали 
 невозможна. Единственный способ просмотреть все кнопки в таком случае растянуть как-то окно игры.
 
@@ -272,44 +272,38 @@ DialogList(DialogMetadata metadata, HolderSet<Dialog> dialogs, @Nullable DialogA
 Во-первых, создадим какой-нибудь диалог на который будут ссылаться кнопки `DialogList`. Пусть будет `Notice Dialog`
 создание которого было рассмотрено [тут](STRUCTURE.md#notice)
 ```java
-                var noticeDialog = new Dialog.Notice( ... );
+var noticeDialog = new Dialog.Notice( ... );
 ```
 А вот сам пример:
 ```java
-                var dialogList = new Dialog.DialogList(
-                        new DialogMetadata(
-                                Component.text("Dialog List Dialog Type"),
-                                null,
-                                true,
-                                false,
-                                DialogAfterAction.CLOSE,
-                                List.of(
-                                        new DialogBody.PlainMessage(Component.text("Суть показать много кнопочек которые перенаправят в другие диалоги и кнопку выйти\"выйти\""), 200),
-                                        new DialogBody.Item(
-                                                ItemStack.of(Material.COW_SPAWN_EGG, 33),
-                                                null, false, false, 16, 16),
-                                        new DialogBody.PlainMessage(Component.text("Иллюзия выбора — это когда"), 100)
-                                ),
-                                List.of()
-                        ),
-                        new HolderSet.Direct<>(
-                                List.of(
-                                        noticeDialog,
-                                        noticeDialog,
-                                        noticeDialog,
-                                        noticeDialog,
-                                        noticeDialog,
-                                        noticeDialog,
-                                        noticeDialog,
-                                        noticeDialog,
-                                        noticeDialog,
-                                        noticeDialog
-                                )
-                        ),
-                        new DialogActionButton(Component.text("Выйти."), null, 100, null),
-                        2,
-                        100
-                );
+var dialogList = new Dialog.DialogList(
+        new DialogMetadata(
+                Component.text("Dialog List Dialog Type"),
+                null,
+                true,
+                false,
+                DialogAfterAction.CLOSE,
+                List.of(
+                        new DialogBody.PlainMessage(Component.text("Суть показать много кнопочек которые перенаправят в другие диалоги и кнопку выйти\"выйти\""), 200),
+                        new DialogBody.Item(
+                                ItemStack.of(Material.COW_SPAWN_EGG, 33),
+                                null, false, false, 16, 16),
+                        new DialogBody.PlainMessage(Component.text("Иллюзия выбора — это когда"), 100)
+                ),
+                List.of()
+        ),
+        new HolderSet.Direct<>(
+                List.of(
+                        noticeDialog,
+                        noticeDialog,
+                        //...
+                        noticeDialog
+                )
+        ),
+        new DialogActionButton(Component.text("Выйти."), null, 100, null),
+        2,
+        100
+);
 ```
 Как это выглядит:
 ![dialogListDialogExample](../images/dialogListDialogExample.png)
