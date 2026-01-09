@@ -4,8 +4,8 @@
 <details>
 <summary>Оглавление</summary>
 
-- [Вступление](../README.md#вступление)
-- [Структура диалогов](STRUCTURE.md#структура-диалогов)
+- [Вступление](../README.md#)
+- [Структура диалогов](STRUCTURE.md)
 - [Компоненты диалогов](COMPONENTS.md)
 - [Функциональность диалогов](FUNCTIONALITY.md)
 </details>

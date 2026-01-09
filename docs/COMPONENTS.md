@@ -1,18 +1,18 @@
 # Виджеты диалогового окна
-Будут рассмотрены основные виджеты состоаляющее любое диалоговое окно, и как с ними работать.
+В этой части будут рассмотрены основные виджеты состоаляющее любое диалоговое окно, и как с ними работать.
 
 ---
 <details>
 <summary>Оглавление</summary>
 
-- [Вступление](../README.md#вступление)
-- [Структура диалогов](STRUCTURE.md#структура-диалогов)
+- [Вступление](../README.md)
+- [Структура диалогов](STRUCTURE.md)
 - [Компоненты диалогов](COMPONENTS.md)
 - [Функциональность диалогов](FUNCTIONALITY.md)
 </details>
 
 - [DialogBody](COMPONENTS.md#dialogbody)
-  - [PlainMessage](COMPONENTS.md#dialogbodyplainmessage)
+  - [PlainMessage](COMPONENTS.md#plainmessage)
   - [Item](COMPONENTS.md#item)
 - [DialogInput](COMPONENTS.md#dialoginput)
   - [Boolean](COMPONENTS.md#boolean)
@@ -106,7 +106,8 @@ false, true, 45, 30)
 - `DialogInput.Text`
 - `DialogInput.Text.Multiline`
 
-Для примера будет использоваться диалог типа `Notice`
+Данные введённые в виджеты можно полуть через `PlayerCustomClickEvent` указав как действие `DinamicAction`. Подробнее
+это написано [тут](FUNCTIONALITY.md#dynamiccustom). Для примеров будет использоваться диалог типа `Notice`
 ```java
 var notice = new Dialog.ServerLinks(
         new DialogMetadata(
@@ -181,7 +182,7 @@ NumberRange(String key, int width, Component label, String labelFormat, float st
 
 Готовый пример:
 ```java
-new DialogInput.NumberRange("beta", 200, Component.text("label"), "options.generic_value", 1, 10, 3f, 0.5f)
+var numberRangeInput = new DialogInput.NumberRange("beta", 200, Component.text("label"), "options.generic_value", 1, 10, 3f, 0.5f)
 ```
 
 Выглядит это так:
@@ -318,5 +319,5 @@ DialogActionButton(Component label, @Nullable Component tooltip, int width, @Nul
 - `action` действие которое запускается при нажатии кнопки. Если `null`, диалоговое окно просто закрывается. Подробнее 
 про `DialogAction` — [тут](//TODO)
 
-`Назад`: [Компоненты диалогов](COMPONENTS.md)
+`Назад`: [Структура диалогов](STRUCTURE.md)
 `Дальше`: [Функциональность диалогов](FUNCTIONALITY.md)

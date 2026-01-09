@@ -5,7 +5,7 @@
 
 
 - [Вступление](README.md#вступление)
-- [Структура диалогов](docs/STRUCTURE.md#структура-диалогов)
+- [Структура диалогов](docs/STRUCTURE.md)
 - [Компоненты диалогов](docs/COMPONENTS.md)
 - [Функциональность диалогов](docs/FUNCTIONALITY.md)
 
